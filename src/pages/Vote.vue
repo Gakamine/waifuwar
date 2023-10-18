@@ -173,6 +173,66 @@
       </form>
       <h1 v-else class="notournament">No tournament for today</h1>
     </b-tab-item>
+	  
+    <b-tab-item label="Husbandos">
+      <form v-if="rounds.find((x) => x.tier === 'Husbando')" class="grid">
+        <div class="grid-items">
+          <b-radio
+            v-model="votes.Husbando.id"
+            name="opponents"
+            :native-value="rounds.find((x) => x.tier === 'Husbando').opp1Id.id"
+          >
+            <img
+              :src="
+                'https://api.waifuwars.madao-king.xyz/' +
+                rounds.find((x) => x.tier === 'Husbando').opp1Id.image
+              "
+            />
+            <p class="opp_name">
+              {{ rounds.find((x) => x.tier === "Husbando").opp1Id.name }}
+            </p>
+          </b-radio>
+          <b-radio
+            v-model="votes.Husbando.id"
+            name="opponents"
+            :native-value="rounds.find((x) => x.tier === 'Husbando').opp2Id.id"
+          >
+            <img
+              :src="
+                'https://api.waifuwars.madao-king.xyz/' +
+                rounds.find((x) => x.tier === 'Husbando').opp2Id.image
+              "
+            />
+            <p class="opp_name">
+              {{ rounds.find((x) => x.tier === "Husbando").opp2Id.name }}
+            </p>
+          </b-radio>
+        </div>
+        <input
+          v-if="token && !votes.Husbando.AlreadyVoted"
+          type="button"
+          value="Submit your vote"
+          @click="SubmitVote('Husbando')"
+          class="button is-primary"
+        />
+        <input
+          v-else-if="token"
+          type="button"
+          value="You already voted"
+          disabled
+          class="button is-primary"
+        />
+        <input
+          v-else
+          type="button"
+          value="You need to log in"
+          disabled
+          class="button is-primary"
+        />
+      </form>
+      <h1 v-else class="notournament">No tournament for today</h1>
+    </b-tab-item>
+	  
   </b-tabs>
 </template>
 <script>
@@ -193,6 +253,10 @@ export default {
           id: null
         },
         Meme: {
+          AlreadyVoted: false,
+          id: null
+        },
+	Husbando: {
           AlreadyVoted: false,
           id: null
         }
