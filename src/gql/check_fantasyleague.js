@@ -22,6 +22,16 @@ query checkVoteFantasyleague($token: String!) {
         meme8Id
         meme9Id
         bestMemeId
+        husbando1Id
+        husbando2Id
+        husbando3Id
+        husbando4Id
+        husbando5Id
+        husbando6Id
+        husbando7Id
+        husbando8Id
+        husbando9Id
+        besthusbandoId
     }
 }
 `
