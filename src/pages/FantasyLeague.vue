@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      disabled: false,
+      disabled: true,
       selection: []
     }
   },
