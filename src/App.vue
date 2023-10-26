@@ -25,9 +25,9 @@
 <script>
 const axios = require("axios").default;
 import Modal from "./components/LoginModal.vue";
-import Footer from "./components/Footer.vue";
-import Header from "./components/Header.vue";
-import error500 from "./components/Error500.vue";
+import Footer from "./components/FooterComponent.vue";
+import Header from "./components/HeaderComponent.vue";
+import error500 from "./components/ErrorComponent500.vue";
 export default {
   name: "App",
   components: {

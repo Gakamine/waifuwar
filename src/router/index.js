@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Homepage from '@/pages/Vote'
-import Results from '@/pages/Results'
-import Memes from '@/pages/Meme'
+import Homepage from '@/pages/VotePage'
+import Results from '@/pages/ResultsPage'
+import Memes from '@/pages/MemePage'
 import FantasyLeague from '@/pages/FantasyLeague'
-import Winners from '@/pages/Winners'
-import error404 from '@/pages/Error404'
+import Winners from '@/pages/WinnersPage'
+import error404_page from '@/pages/ErrorPage404'
 
 Vue.use(Router)
 
@@ -40,7 +40,7 @@ export default new Router({
     {
       path: '/*',
       name: 'Error 404',
-      component: error404
+      component: error404_page
     }
   ]
 })
