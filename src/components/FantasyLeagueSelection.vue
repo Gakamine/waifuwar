@@ -64,6 +64,66 @@
           Choose your best waifu
         </b-button>
       </b-step-item>
+
+      <b-step-item label="Husbandos">
+        <p class="instructions">Select 10 husbandos</p>
+        <form class="grid">
+          <div class="grid-items">
+            <b-checkbox
+              v-for="husbandos in data_husbandos"
+              v-model="husbandos"
+              name="husbando"
+              :native-value="husbando"
+              :key="husbando.id"
+            >
+              <img
+                :src="'https://api.waifuwars.madao-king.xyz/' + husbando.image"
+              />
+              <p class="opp_name">{{ husbando.name }}</p>
+            </b-checkbox>
+          </div>
+        </form>
+        <b-button
+          v-if="husbandos.length == 10"
+          class="is-primary fantasy-btn"
+          @click.prevent="nextStep()"
+        >
+          Next step
+        </b-button>
+        <b-button v-else class="is-primary fantasy-btn" disabled>
+          Choose 10 husbandos (you picked {{ husbandos.length }})
+        </b-button>
+      </b-step-item>
+            <b-step-item label="Best husbando">
+        <p class="instructions">Select your best husbando</p>
+        <form class="grid">
+          <div class="grid-items">
+            <b-radio
+              v-for="husbando in husbandos"
+              v-model="best_husbando"
+              name="husbando"
+              :native-value="husbando.id"
+              :key="husbando.id"
+            >
+              <img
+                :src="'https://api.waifuwars.madao-king.xyz/' + husbando.image"
+              />
+              <p class="opp_name">{{ husbando.name }}</p>
+            </b-radio>
+          </div>
+        </form>
+        <b-button
+          v-if="best_husbando != null"
+          class="is-primary fantasy-btn"
+          @click.prevent="nextStep()"
+        >
+          Next step
+        </b-button>
+        <b-button v-else class="is-primary fantasy-btn" disabled>
+          Choose your best husbando
+        </b-button>
+      </b-step-item>
+      
       <b-step-item label="Memes">
         <p class="instructions">Select 10 memes</p>
         <form class="grid">
@@ -137,6 +197,8 @@ export default {
       best_waifu: null,
       memes: [],
       best_meme: null,
+      husbandos: [],
+      best_husbando: null,
       data: [],
     };
   },
@@ -150,7 +212,10 @@ export default {
   },
   computed: {
     data_waifus: function () {
-      return this.data.filter((x) => x.tier != "Meme");
+      return this.data.filter((x) => (x.tier == "A") || (x.tier == "B"));
+    },
+    data_husbandos: function () {
+      return this.data.filter((x) => x.tier == "Husbando");
     },
     data_memes: function () {
       return this.data.filter((x) => x.tier == "Meme");
@@ -160,6 +225,8 @@ export default {
     submit() {
       const clone_waifus = this.waifus.map(({ id }) => id);
       clone_waifus.splice(clone_waifus.indexOf(this.best_waifu), 1);
+      const clone_husbandos = this.husbandos.map(({ id }) => id);
+      clone_husbandos.splice(clone_husbandos.indexOf(this.best_husbando), 1);
       const clone_memes = this.memes.map(({ id }) => id);
       clone_memes.splice(clone_memes.indexOf(this.best_meme), 1);
       this.$apollo
@@ -173,6 +240,8 @@ export default {
             best_waifu: this.best_waifu,
             memes: clone_memes,
             best_meme: this.best_meme,
+            husbandos: clone_husbandos,
+            best_husbando: this.best_husbando,
           },
         })
         .then((reponse) => {
