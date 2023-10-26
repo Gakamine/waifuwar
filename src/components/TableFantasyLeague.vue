@@ -5,6 +5,7 @@
         <b-select v-model="filter" expanded>
           <option value="all">All</option>
           <option value="waifus">Waifus</option>
+          <option value="husbandos">Husbandos</option>
           <option value="memes">Memes</option>
         </b-select>
       </b-field>
@@ -71,7 +72,10 @@ export default {
           this.display = this.waifus;
           break;
         case "waifus":
-          this.display = this.waifus.filter((x) => x.tier != "Meme");
+          this.display = this.waifus.filter((x) => (x.tier == "A") && (x.tier == "B"));
+          break;
+        case "husbandos":
+          this.display = this.waifus.filter((x) => x.tier == "Husbandos");
           break;
         case "memes":
           this.display = this.waifus.filter((x) => x.tier === "Meme");
