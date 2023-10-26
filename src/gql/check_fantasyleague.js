@@ -31,7 +31,7 @@ query checkVoteFantasyleague($token: String!) {
         husbando7Id
         husbando8Id
         husbando9Id
-        besthusbandoId
+        bestHusbandoId
     }
 }
 `
