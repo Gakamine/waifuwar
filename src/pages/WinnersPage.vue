@@ -21,8 +21,8 @@
     <b-tooltip position="is-top" multilined>
       <img class="waifus" src="@/assets/w_2021.png" />
       <template v-slot:content>
-        <p><b>Holo</b></p>
-        <i>Waifu Wars 2019</i>
+        <p><b>Yor Forger</b></p>
+        <i>Waifu Wars 2021</i>
       </template>
     </b-tooltip>
   </div>
