@@ -75,7 +75,7 @@ export default {
           this.display = this.waifus.filter((x) => (x.tier == "A") || (x.tier == "B"));
           break;
         case "husbandos":
-          this.display = this.waifus.filter((x) => x.tier == "Husbandos");
+          this.display = this.waifus.filter((x) => x.tier == "Husbando");
           break;
         case "memes":
           this.display = this.waifus.filter((x) => x.tier === "Meme");
