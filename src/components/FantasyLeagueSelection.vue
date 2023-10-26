@@ -70,7 +70,7 @@
         <form class="grid">
           <div class="grid-items">
             <b-checkbox
-              v-for="husbandos in data_husbandos"
+              v-for="husbando in data_husbandos"
               v-model="husbandos"
               name="husbando"
               :native-value="husbando"
