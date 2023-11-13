@@ -1,43 +1,43 @@
 <template>
   <b-tabs type="is-toggle-rounded">
-    <b-tab-item label="Tier A">
-      <form v-if="rounds.find((x) => x.tier === 'A')" class="grid">
+    <b-tab-item label="Waifu">
+      <form v-if="rounds.find((x) => x.tier === 'Waifu')" class="grid">
         <div class="grid-items">
           <b-radio
-            v-model="votes.A.id"
+            v-model="votes.Waifu.id"
             name="opponents"
-            :native-value="rounds.find((x) => x.tier === 'A').opp1Id.id"
+            :native-value="rounds.find((x) => x.tier === 'Waifu').opp1Id.id"
           >
             <img
               :src="
                 'https://api.waifuwars.madao-king.xyz/' +
-                rounds.find((x) => x.tier === 'A').opp1Id.image
+                rounds.find((x) => x.tier === 'Waifu').opp1Id.image
               "
             />
             <p class="opp_name">
-              {{ rounds.find((x) => x.tier === "A").opp1Id.name }}
+              {{ rounds.find((x) => x.tier === "Waifu").opp1Id.name }}
             </p>
           </b-radio>
           <b-radio
-            v-model="votes.A.id"
-            :native-value="rounds.find((x) => x.tier === 'A').opp2Id.id"
+            v-model="votes.Waifu.id"
+            :native-value="rounds.find((x) => x.tier === 'Waifu').opp2Id.id"
           >
             <img
               :src="
                 'https://api.waifuwars.madao-king.xyz/' +
-                rounds.find((x) => x.tier === 'A').opp2Id.image
+                rounds.find((x) => x.tier === 'Waifu').opp2Id.image
               "
             />
             <p class="opp_name">
-              {{ rounds.find((x) => x.tier === "A").opp2Id.name }}
+              {{ rounds.find((x) => x.tier === "Waifu").opp2Id.name }}
             </p>
           </b-radio>
         </div>
         <input
-          v-if="token && !votes.A.AlreadyVoted"
+          v-if="token && !votes.Waifu.AlreadyVoted"
           type="button"
           value="Submit your vote"
-          @click="SubmitVote('A')"
+          @click="SubmitVote('Waifu')"
           class="button is-primary"
         />
         <input
@@ -57,124 +57,8 @@
       </form>
       <h1 v-else class="notournament">No tournament for today</h1>
     </b-tab-item>
-    <b-tab-item label="Tier B">
-      <form v-if="rounds.find((x) => x.tier === 'B')" class="grid">
-        <div class="grid-items">
-          <b-radio
-            v-model="votes.B.id"
-            name="opponents"
-            :native-value="rounds.find((x) => x.tier === 'B').opp1Id.id"
-          >
-            <img
-              :src="
-                'https://api.waifuwars.madao-king.xyz/' +
-                rounds.find((x) => x.tier === 'B').opp1Id.image
-              "
-            />
-            <p class="opp_name">
-              {{ rounds.find((x) => x.tier === "B").opp1Id.name }}
-            </p>
-          </b-radio>
-          <b-radio
-            v-model="votes.B.id"
-            name="opponents"
-            :native-value="rounds.find((x) => x.tier === 'B').opp2Id.id"
-          >
-            <img
-              :src="
-                'https://api.waifuwars.madao-king.xyz/' +
-                rounds.find((x) => x.tier === 'B').opp2Id.image
-              "
-            />
-            <p class="opp_name">
-              {{ rounds.find((x) => x.tier === "B").opp2Id.name }}
-            </p>
-          </b-radio>
-        </div>
-        <input
-          v-if="token && !votes.B.AlreadyVoted"
-          type="button"
-          value="Submit your vote"
-          @click="SubmitVote('B')"
-          class="button is-primary"
-        />
-        <input
-          v-else-if="token"
-          type="button"
-          value="You already voted"
-          disabled
-          class="button is-primary"
-        />
-        <input
-          v-else
-          type="button"
-          value="You need to log in"
-          disabled
-          class="button is-primary"
-        />
-      </form>
-      <h1 v-else class="notournament">No tournament for today</h1>
-    </b-tab-item>
-    <b-tab-item label="Tier Meme">
-      <form v-if="rounds.find((x) => x.tier === 'Meme')" class="grid">
-        <div class="grid-items">
-          <b-radio
-            v-model="votes.Meme.id"
-            name="opponents"
-            :native-value="rounds.find((x) => x.tier === 'Meme').opp1Id.id"
-          >
-            <img
-              :src="
-                'https://api.waifuwars.madao-king.xyz/' +
-                rounds.find((x) => x.tier === 'Meme').opp1Id.image
-              "
-            />
-            <p class="opp_name">
-              {{ rounds.find((x) => x.tier === "Meme").opp1Id.name }}
-            </p>
-          </b-radio>
-          <b-radio
-            v-model="votes.Meme.id"
-            name="opponents"
-            :native-value="rounds.find((x) => x.tier === 'Meme').opp2Id.id"
-          >
-            <img
-              :src="
-                'https://api.waifuwars.madao-king.xyz/' +
-                rounds.find((x) => x.tier === 'Meme').opp2Id.image
-              "
-            />
-            <p class="opp_name">
-              {{ rounds.find((x) => x.tier === "Meme").opp2Id.name }}
-            </p>
-          </b-radio>
-        </div>
-        <input
-          v-if="token && !votes.Meme.AlreadyVoted"
-          type="button"
-          value="Submit your vote"
-          @click="SubmitVote('Meme')"
-          class="button is-primary"
-        />
-        <input
-          v-else-if="token"
-          type="button"
-          value="You already voted"
-          disabled
-          class="button is-primary"
-        />
-        <input
-          v-else
-          type="button"
-          value="You need to log in"
-          disabled
-          class="button is-primary"
-        />
-      </form>
-      <h1 v-else class="notournament">No tournament for today</h1>
-    </b-tab-item>
-	  
-    <b-tab-item label="Husbandos">
+
+    <b-tab-item label="Husbando">
       <form v-if="rounds.find((x) => x.tier === 'Husbando')" class="grid">
         <div class="grid-items">
           <b-radio
@@ -233,6 +117,65 @@
       <h1 v-else class="notournament">No tournament for today</h1>
     </b-tab-item>
 	  
+    <b-tab-item label="Meme">
+      <form v-if="rounds.find((x) => x.tier === 'Meme')" class="grid">
+        <div class="grid-items">
+          <b-radio
+            v-model="votes.Meme.id"
+            name="opponents"
+            :native-value="rounds.find((x) => x.tier === 'Meme').opp1Id.id"
+          >
+            <img
+              :src="
+                'https://api.waifuwars.madao-king.xyz/' +
+                rounds.find((x) => x.tier === 'Meme').opp1Id.image
+              "
+            />
+            <p class="opp_name">
+              {{ rounds.find((x) => x.tier === "Meme").opp1Id.name }}
+            </p>
+          </b-radio>
+          <b-radio
+            v-model="votes.Meme.id"
+            name="opponents"
+            :native-value="rounds.find((x) => x.tier === 'Meme').opp2Id.id"
+          >
+            <img
+              :src="
+                'https://api.waifuwars.madao-king.xyz/' +
+                rounds.find((x) => x.tier === 'Meme').opp2Id.image
+              "
+            />
+            <p class="opp_name">
+              {{ rounds.find((x) => x.tier === "Meme").opp2Id.name }}
+            </p>
+          </b-radio>
+        </div>
+        <input
+          v-if="token && !votes.Meme.AlreadyVoted"
+          type="button"
+          value="Submit your vote"
+          @click="SubmitVote('Meme')"
+          class="button is-primary"
+        />
+        <input
+          v-else-if="token"
+          type="button"
+          value="You already voted"
+          disabled
+          class="button is-primary"
+        />
+        <input
+          v-else
+          type="button"
+          value="You need to log in"
+          disabled
+          class="button is-primary"
+        />
+      </form>
+      <h1 v-else class="notournament">No tournament for today</h1>
+    </b-tab-item>
+	  
   </b-tabs>
 </template>
 <script>
@@ -244,11 +187,7 @@ export default {
   data() {
     return {
       votes:{
-        A: {
-          AlreadyVoted: false,
-          id: null
-        },
-        B: {
+        Waifu: {
           AlreadyVoted: false,
           id: null
         },
