@@ -72,7 +72,7 @@ export default {
           this.display = this.waifus;
           break;
         case "waifus":
-          this.display = this.waifus.filter((x) => (x.tier == "A") || (x.tier == "B"));
+          this.display = this.waifus.filter((x) => x.tier == "Waifu");
           break;
         case "husbandos":
           this.display = this.waifus.filter((x) => x.tier == "Husbando");
