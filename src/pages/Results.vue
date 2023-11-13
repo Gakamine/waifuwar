@@ -1,6 +1,6 @@
 <template>
   <b-tabs type="is-toggle-rounded">
-    <b-tab-item label="Tier Waifu">
+    <b-tab-item label="Waifu">
       <iframe
         src="https://challonge.com/en/k0repnem/module"
         width="100%"
@@ -20,7 +20,7 @@
         allowtransparency="true"
       ></iframe>
     </b-tab-item>
-    <b-tab-item label="Tier Meme">
+    <b-tab-item label="Meme">
       <iframe
         src="https://challonge.com/en/3rt83aiz/module"
         width="100%"
