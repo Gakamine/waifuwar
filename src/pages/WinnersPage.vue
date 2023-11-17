@@ -12,17 +12,24 @@
       </template>
     </b-tooltip>
     <b-tooltip position="is-top" multilined>
+      <img class="waifus" src="@/assets/w_2021.png" />
+      <template v-slot:content>
+        <p><b>Violet Evergarden</b></p>
+        <i>Waifu Wars 2021</i>
+      </template>
+    </b-tooltip>
+    <b-tooltip position="is-top" multilined>
+      <img class="waifus" src="@/assets/w_2022.png" />
+      <template v-slot:content>
+        <p><b>Yor Forger</b></p>
+        <i>Waifu Wars 2022</i>
+      </template>
+    </b-tooltip>
+    <b-tooltip position="is-top" multilined>
       <img class="waifus" src="@/assets/w_2020.png" />
       <template v-slot:content>
         <p><b>Makise Kurisu</b></p>
         <i>Waifu Wars 2020</i>
-      </template>
-    </b-tooltip>
-    <b-tooltip position="is-top" multilined>
-      <img class="waifus" src="@/assets/w_2021.png" />
-      <template v-slot:content>
-        <p><b>Yor Forger</b></p>
-        <i>Waifu Wars 2021</i>
       </template>
     </b-tooltip>
   </div>
@@ -35,10 +42,9 @@ export default {
 
 <style scoped>
 .waifus {
-  max-height: 250px;
+  max-height: 450px;
   cursor: pointer;
   z-index: 2;
-  position: relative;
 }
 .bg_waifus {
     background-repeat: no-repeat;
@@ -47,11 +53,11 @@ export default {
     padding: 0px;
     margin-top: auto;
     height: 550px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 .b-tooltip {
-  top: calc(100% - 250px);
-}
-.b-tooltip:nth-child(2) {
-    float: right
+  top: calc(100% - 450px);
 }
 </style>
