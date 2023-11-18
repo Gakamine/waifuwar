@@ -12,6 +12,13 @@
       </template>
     </b-tooltip>
     <b-tooltip position="is-top" multilined>
+      <img class="waifus" src="@/assets/w_2020.png" />
+      <template v-slot:content>
+        <p><b>Makise Kurisu</b></p>
+        <i>Waifu Wars 2020</i>
+      </template>
+    </b-tooltip>
+    <b-tooltip position="is-top" multilined>
       <img class="waifus" src="@/assets/w_2021.png" />
       <template v-slot:content>
         <p><b>Violet Evergarden</b></p>
@@ -23,13 +30,6 @@
       <template v-slot:content>
         <p><b>Yor Forger</b></p>
         <i>Waifu Wars 2022</i>
-      </template>
-    </b-tooltip>
-    <b-tooltip position="is-top" multilined>
-      <img class="waifus" src="@/assets/w_2020.png" />
-      <template v-slot:content>
-        <p><b>Makise Kurisu</b></p>
-        <i>Waifu Wars 2020</i>
       </template>
     </b-tooltip>
   </div>
