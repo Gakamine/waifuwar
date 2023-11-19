@@ -212,7 +212,7 @@ export default {
   },
   computed: {
     data_waifus: function () {
-      return this.data.filter((x) => (x.tier == "A") || (x.tier == "B"));
+      return this.data.filter((x) => x.tier == "Waifu");
     },
     data_husbandos: function () {
       return this.data.filter((x) => x.tier == "Husbando");
