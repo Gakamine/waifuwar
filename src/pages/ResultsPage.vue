@@ -4,7 +4,7 @@
       <iframe
         src="https://challonge.com/en/k0repnem/module"
         width="100%"
-        height="1000"
+        height="500"
         frameborder="0"
         scrolling="auto"
         allowtransparency="true"
@@ -14,7 +14,7 @@
       <iframe
         src="https://challonge.com/en/ve7twwn1/module"
         width="100%"
-        height="1000"
+        height="500"
         frameborder="0"
         scrolling="auto"
         allowtransparency="true"
@@ -24,7 +24,7 @@
       <iframe
         src="https://challonge.com/en/3rt83aiz/module"
         width="100%"
-        height="1000"
+        height="500"
         frameborder="0"
         scrolling="auto"
         allowtransparency="true"
